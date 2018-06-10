@@ -1,0 +1,10 @@
+.panel_wrapper {
+  display: flex;
+}
+
+.panel_wrapper>div {
+  padding: 20px;
+  border: 1px solid #000;
+  width: 25%;
+  box-sizing: border-box;
+}

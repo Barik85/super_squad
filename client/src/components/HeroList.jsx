@@ -1,26 +1,29 @@
-/* eslint-disable */
-// "heroes": [
-//   {
-//     "id": 0,
-//     "name": "Superman",
-//     "strength": 10,
-//     "intelligence": 7,
-//     "speed": 9
-//   },
-
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Hero from './Hero';
 
-const HeroList = ({heroes, ...props}) => (
-  <ul>
-    {heroes.map((hero) => (
-      <li key={hero.id}>
-        <Hero name={hero.name}/>
-      </li>
-      )
-    )}
-  </ul>
+const HeroList = ({heroes, actions}) => (
+    <ul>
+      {heroes.map((hero) => (
+        <li key={hero.id}>
+          <Hero dataHero={hero} actions={actions}/>
+        </li>
+        )
+      )}
+    </ul>
 )
+
+
+HeroList.propTypes = {
+  heroes: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.shape(
+    PropTypes.func
+  )
+}
+
+HeroList.defaultProps = {
+  heroes: [],
+  actions: {}
+}
 
 export default HeroList;
