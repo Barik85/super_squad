@@ -17,7 +17,7 @@ PanelWrapper.propTypes = {
 }
 
 PanelWrapper.defaultProps = {
-  children: () => (<div/>),
+  children: [],
 }
 
 export default PanelWrapper;

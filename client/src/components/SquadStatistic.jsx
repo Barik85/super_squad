@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SquadStatistic = ({squad}) => {
-  const strength = squad.reduce((sum , hero) => sum + hero.strength, 0);
-  const intelligence = squad.reduce((sum , hero) => sum + hero.intelligence, 0);
-  const speed = squad.reduce((sum , hero) => sum + hero.speed, 0);
+const SquadStatistic = ({statistic}) => {
+  const keys = Object.keys(statistic);
+  const values = Object.values(statistic);
 
   return (
     <ul>
-      <li>Strength: {strength}</li>
-      <li>Intelligence: {intelligence}</li>
-      <li>Speed: {speed}</li>
+      <li key={keys[0]}>Strength: {values[0]}</li>
+      <li key={keys[1]}>Intelligence: {values[1]}</li>
+      <li key={keys[2]}>Speed: {values[2]}</li>
     </ul>
   )
 }
 
 SquadStatistic.propTypes = {
-  squad: PropTypes.arrayOf(PropTypes.any)
+  statistic: PropTypes.shape(),
 }
 
 SquadStatistic.defaultProps = {
-  squad:[]
+  statistic: {}
 }
 
 export default SquadStatistic;

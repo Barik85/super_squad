@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {v4} from 'uuid';
+// import {v4} from 'uuid';
 
 const INITIAL_STATE = {
   name: '',
@@ -19,8 +19,8 @@ export default class AddHeroForm extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     if (this.state.name === '') return;
-    const id = v4();
-    const newHero = {'id': id, ...this.state};
+    // const id = v4();
+    const newHero = {...this.state};
 
     this.props.onFormSubmit(newHero);
 

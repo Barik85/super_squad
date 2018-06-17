@@ -16,13 +16,12 @@ const Hero = ({dataHero, actions}) => {
 
   const {onAdd} = actions;
   const {onDelete} = actions;
-  console.log(onAdd);
 
   return (
   <div>
     <p>{dataHero.name}</p>
     {onAdd ? (
-      <button onClick={() => {onAdd(dataHero)}}>Add to squad</button>
+      <button onClick={() => {onAdd(dataHero.id)}}>Add to squad</button>
     ) : (
       ''
     )}
@@ -37,13 +36,23 @@ const Hero = ({dataHero, actions}) => {
 
 
 
+// Hero.propTypes = {
+//   dataHero: PropTypes.shape(
+//     PropTypes.any
+//   ),
+//   actions: PropTypes.shape(
+//     PropTypes.func
+//   )
+// }
 Hero.propTypes = {
-  dataHero: PropTypes.shape(
-    PropTypes.any
-  ),
-  actions: PropTypes.shape(
-    PropTypes.func
-  )
+  dataHero: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    strength: PropTypes.number,
+    intelligence: PropTypes.number,
+    speed: PropTypes.number
+  }),
+  actions: PropTypes.shape()
 }
 
 Hero.defaultProps = {

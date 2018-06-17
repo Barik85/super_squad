@@ -1,27 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// "squads": [
-//   {
-//     "heroes": [
-//       {
-//         "id": 1,
-//         "name": "Batman",
-//         "strength": 7,
-//         "intelligence": 10,
-//         "speed": 6
-//       }
-//     ],
-//     "stats": {
-//       "str": 7,
-//       "int": 10,
-//       "spd": 6
-//     },
-//     "id": 1
-//   }
-// ]
-
-const SquadList = ({squads}) => (
+const SquadList = ({squads, onDelete}) => (
   <div>
     <ul>
       {squads.map((squad) =>(
@@ -37,15 +17,12 @@ const SquadList = ({squads}) => (
           <div>
             <h3>Stats</h3>
             <ul>
-              {/* {Array.prototype.map.call(squad.stats, (stat, i, arr) => (
-                <li>{stat}: {arr[stat]}</li>
-              ))} */}
               {Object.keys(squad.stats).map((stat) => (
                 <li key={stat}>{stat}: {squad.stats[stat]}</li>
               ))}
-              {console.log(squad.stats)}
             </ul>
           </div>
+          <button  onClick={() => onDelete(squad.id)}>Delete squad</button>
         </li>
       ))}
     </ul>
@@ -53,15 +30,15 @@ const SquadList = ({squads}) => (
 )
 
 SquadList.propTypes = {
-  squads: PropTypes.shape({
-    heroes: PropTypes.arrayOf(PropTypes.any),
-    stats: PropTypes.shape(PropTypes.any),
-    id: PropTypes.string,
-  }),
+  squads: PropTypes.arrayOf(
+    PropTypes.shape()
+  ),
+  onDelete: PropTypes.func,
 }
 
 SquadList.defaultProps = {
-  squads: {}
+  squads: [],
+  onDelete: () => {}
 }
 
 export default SquadList;

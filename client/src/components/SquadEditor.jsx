@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 const SquadEditor = ({actions}) => (
   <div>
     <button onClick={actions.onSave}>Save Squad</button>
-    <button onClick={actions.Reset}>Reset Editor</button>
+    <button onClick={actions.onReset}>Reset Editor</button>
   </div>
 );
 
 SquadEditor.propTypes ={
-  actions: PropTypes.shape(
-    PropTypes.func
-  )
+  actions: PropTypes.objectOf(PropTypes.func)
 }
 
 SquadEditor.defaultProps ={
