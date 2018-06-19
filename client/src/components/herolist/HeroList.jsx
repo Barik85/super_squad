@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Hero from './Hero';
+import Hero from '../hero/Hero';
+import styles from './HeroList.css';
 
 const HeroList = ({heroes, actions}) => heroes.length > 0 ? (
-    <ul>
+    <ul className={styles.hero_list}>
       {heroes.map((hero) => (
         <li key={hero.id}>
           <Hero dataHero={hero} actions={actions}/>

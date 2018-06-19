@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TextInput from './text_input/TextInput'
 
 export default class Filter extends Component {
 
@@ -12,10 +13,9 @@ export default class Filter extends Component {
     value: ''
   }
 
-  handleInputChange = (e) => {
-    const InputValue = e.target.value;
-    this.setState({value: InputValue});
-    this.props.onFilterChange(InputValue);
+  handleInputChange = (inputValue) => {
+    this.setState({value: inputValue});
+    this.props.onFilterChange(inputValue);
   }
 
   render() {
@@ -23,7 +23,7 @@ export default class Filter extends Component {
 
     return (
       <form>
-        <input type="text" value={filter} onChange={this.handleInputChange}/>
+        <TextInput value={filter} onChange={this.handleInputChange} placeholder="find hero"/>
       </form>
     );
   }

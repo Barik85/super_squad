@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as FA from 'react-icons/lib/fa';
+import Button from './button/Button';
+import geometry from './OuterGeometry.css';
 
 const SquadEditor = ({actions}) => (
   <div>
-    <button onClick={actions.onSave}>Save Squad</button>
-    <button onClick={actions.onReset}>Reset Editor</button>
+    <div className={geometry.m20auto}>
+      <Button action={actions.onSave} layout="btn_filled">
+        <FA.FaCheck/>
+        Save Squad
+      </Button>
+    </div>
+    <div className={geometry.m20auto}>
+      <Button action={actions.onReset} layout="btn_filled">
+        <FA.FaClose/>
+        Reset Editor
+      </Button>
+    </div>
   </div>
 );
 

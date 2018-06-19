@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import HeroList from './components/HeroList';
-// import data from './initial_data';
+import HeroList from './components/herolist/HeroList';
 import PanelWrapper from './components/PanelWrapper';
 import Filter from './components/Filter';
 import AddHeroForm from './components/AddHeroForm';
 import SquadStatistic from './components/SquadStatistic';
 import SquadList from './components/SquadList';
 import SquadEditor from './components/SquadEditor';
-import * as utils from './components/utils/utils'
-
+import * as utils from './components/utils/utils';
+import titleStyle from './components/typography/titles.css';
+import geometry from './components/OuterGeometry.css';
 
 class App extends Component {
 
@@ -183,25 +183,25 @@ class App extends Component {
 
     return (
       <Fragment>
-        <h1>Super Squad</h1>
+        <h1 className={[titleStyle.heading1, geometry.mb20].join(' ')}>Super Squad</h1>
         <PanelWrapper>
           <div name="Create_hero">
-            <h2>Create Hero</h2>
+            <h2 className={[titleStyle.heading2, geometry.mb20].join(' ')}>Create Hero</h2>
             <AddHeroForm onFormSubmit={this.addHero}/>
           </div>
           <div name="Hero_list">
-            <h2>Heroes</h2>
+            <h2 className={[titleStyle.heading2, geometry.mb20].join(' ')}>Heroes</h2>
             <Filter onFilterChange={this.handleFilterChange} filter={filter}/>
             <HeroList heroes={visibleHeroes} actions={actionsForHero}/>
           </div>
           <div name="Squad_editor">
-            <h2>Squad Editor</h2>
+            <h2 className={[titleStyle.heading2, geometry.mb20].join(' ')}>Squad Editor</h2>
             <SquadEditor actions={actionsForSquadEditor}/>
             <SquadStatistic statistic={statistic}/>
             <HeroList heroes={HeroesInSquad} actions={actionsForSquadHero}/>
           </div>
           <div name="Saved squads">
-            <h2>Saved Squads</h2>
+            <h2 className={[titleStyle.heading2, geometry.mb20].join(' ')}>Saved Squads</h2>
             <SquadList squads={this.state.squads} onDelete={this.deleteSquad}/>
           </div>
         </PanelWrapper>

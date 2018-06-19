@@ -1,0 +1,14 @@
+.squad {
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #424242;
+}
+
+.heroes_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.squad button {
+  display: block;
+  margin: 20px auto;
+}

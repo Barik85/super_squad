@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import * as FA from 'react-icons/lib/fa';
+// import Button from './button/Button';
+import Squad from './squad/Squad';
 
 const SquadList = ({squads, onDelete}) => (
   <div>
     <ul>
       {squads.map((squad) =>(
         <li key={squad.id}>
-          <div>
+          <Squad squad={squad} onDelete={onDelete}/>
+          {/* <div>
             <h3>Heroes</h3>
             <ul>
               {squad.heroes.map((hero) => (
@@ -22,7 +26,10 @@ const SquadList = ({squads, onDelete}) => (
               ))}
             </ul>
           </div>
-          <button  onClick={() => onDelete(squad.id)}>Delete squad</button>
+          <Button layout="btn_filled" action={() => onDelete(squad.id)}>
+            <FA.FaTrashO/>
+            Delete squad
+          </Button> */}
         </li>
       ))}
     </ul>

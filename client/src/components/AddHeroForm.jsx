@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-// import {v4} from 'uuid';
+import * as FA from 'react-icons/lib/fa';
+import Button from './button/Button';
+import inputStyle from './text_input/TextInput.css';
+import geometry from './OuterGeometry.css';
 
 const INITIAL_STATE = {
   name: '',
@@ -19,7 +22,6 @@ export default class AddHeroForm extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     if (this.state.name === '') return;
-    // const id = v4();
     const newHero = {...this.state};
 
     this.props.onFormSubmit(newHero);
@@ -52,6 +54,7 @@ export default class AddHeroForm extends Component {
       <form onSubmit={this.handleFormSubmit}>
         <div>
           <input
+          className={inputStyle.text_input}
           type="text"
           name="name"
           value={name}
@@ -59,7 +62,7 @@ export default class AddHeroForm extends Component {
           onChange={this.handleInputChange}/>
         </div>
         <div>
-          <select name="strength" value={strength} onChange={this.handleInputNumberChange}>
+          <select  className={inputStyle.text_input} name="strength" value={strength} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Strength </option>
             <option value="1"> 1 </option>
             <option value="2"> 2 </option>
@@ -72,7 +75,7 @@ export default class AddHeroForm extends Component {
             <option value="9"> 9 </option>
             <option value="10"> 10 </option>
           </select>
-          <select name="intelligence" value={intelligence} onChange={this.handleInputNumberChange}>
+          <select  className={inputStyle.text_input} name="intelligence" value={intelligence} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Intelligence </option>
             <option value="1"> 1 </option>
             <option value="2"> 2 </option>
@@ -85,7 +88,7 @@ export default class AddHeroForm extends Component {
             <option value="9"> 9 </option>
             <option value="10"> 10 </option>
           </select>
-          <select name="speed" value={speed} onChange={this.handleInputNumberChange}>
+          <select  className={inputStyle.text_input} name="speed" value={speed} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Speed </option>
             <option value="1"> 1 </option>
             <option value="2"> 2 </option>
@@ -99,7 +102,12 @@ export default class AddHeroForm extends Component {
             <option value="10"> 10 </option>
           </select>
         </div>
-        <button type="submit">Add Hero</button>
+        <div className={geometry.m20auto}>
+          <Button type="submit" layout="btn_filled" action={this.handleFormSubmit}>
+            <FA.FaPlusCircle/>
+            Add Hero
+          </Button>
+        </div>
       </form>
     );
   }

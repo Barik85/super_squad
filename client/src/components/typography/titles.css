@@ -1,0 +1,17 @@
+@value grafit: #424242;
+
+.heading1 {
+  font-size: 38px;
+  color: grafit;
+  padding: 20px;
+  border-bottom: 2px solid grafit;
+  text-align: center;
+}
+
+.heading2 {
+  font-size: 24px;
+  color: grafit;
+  padding: 15px;
+  border-bottom: 1px solid grafit;
+  text-align: center;
+}

@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as FA from 'react-icons/lib/fa';
+import Button from '../button/Button';
+import styles from './Hero.css';
+
 
 const Hero = ({dataHero, actions}) => {
 
@@ -18,19 +22,27 @@ const Hero = ({dataHero, actions}) => {
   const {onDelete} = actions;
 
   return (
-  <div>
+  <div className={styles.hero}>
     <p>{dataHero.name}</p>
-    {onAdd ? (
-      <button onClick={() => {onAdd(dataHero.id)}}>Add to squad</button>
-    ) : (
-      ''
-    )}
-    {onDelete ? (
-      <button onClick={() => {onDelete(dataHero.id)}}>Delete</button>
-    ) : (
-      ''
-    )}
-    <button onClick={showInfo}>Info</button>
+    <div>
+      {onAdd ? (
+        <Button action={() => {onAdd(dataHero.id)}}>
+          <FA.FaUserPlus/>
+        </Button>
+      ) : (
+        ''
+      )}
+      {onDelete ? (
+        <Button action={() => {onDelete(dataHero.id)}}>
+          <FA.FaTrash/>
+        </Button>
+      ) : (
+        ''
+      )}
+      <Button action={() => {showInfo()}}>
+          <FA.FaInfoCircle/>
+      </Button>
+    </div>
   </div>
 )};
 

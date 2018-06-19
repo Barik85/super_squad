@@ -1,0 +1,15 @@
+.text_input {
+  border: none;
+  border-bottom: 1px solid #424242;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.text_input:focus {
+  border: none;
+  border-bottom: 2px solid #f37927;
+}
