@@ -7,13 +7,13 @@ const HeroList = ({heroes, actions}) => heroes.length > 0 ? (
     <ul className={styles.hero_list}>
       {heroes.map((hero) => (
         <li key={hero.id}>
-          <Hero dataHero={hero} actions={actions}/>
+          <Hero {...hero} actions={actions}/>
         </li>
         )
       )}
     </ul>
 ) : (
-  <p> No heroes yet... </p>
+  <p className={styles.message}> No heroes yet... </p>
 )
 
 

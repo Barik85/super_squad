@@ -4,6 +4,7 @@ import * as FA from 'react-icons/lib/fa';
 import Button from './button/Button';
 import inputStyle from './text_input/TextInput.css';
 import geometry from './OuterGeometry.css';
+import {makeOptions} from '../utils/utils';
 
 const INITIAL_STATE = {
   name: '',
@@ -45,10 +46,7 @@ export default class AddHeroForm extends Component {
 
   render() {
 
-    const {name} = this.state;
-    const {strength} = this.state;
-    const {intelligence} = this.state;
-    const {speed} = this.state;
+    const {name, strength, intelligence, speed} = this.state;
 
     return (
       <form onSubmit={this.handleFormSubmit}>
@@ -64,42 +62,15 @@ export default class AddHeroForm extends Component {
         <div>
           <select  className={inputStyle.text_input} name="strength" value={strength} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Strength </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"> 5 </option>
-            <option value="6"> 6 </option>
-            <option value="7"> 7 </option>
-            <option value="8"> 8 </option>
-            <option value="9"> 9 </option>
-            <option value="10"> 10 </option>
+            {makeOptions(10)}
           </select>
           <select  className={inputStyle.text_input} name="intelligence" value={intelligence} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Intelligence </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"> 5 </option>
-            <option value="6"> 6 </option>
-            <option value="7"> 7 </option>
-            <option value="8"> 8 </option>
-            <option value="9"> 9 </option>
-            <option value="10"> 10 </option>
+            {makeOptions(10)}
           </select>
           <select  className={inputStyle.text_input} name="speed" value={speed} onChange={this.handleInputNumberChange}>
             <option value="" disabled> Speed </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"> 5 </option>
-            <option value="6"> 6 </option>
-            <option value="7"> 7 </option>
-            <option value="8"> 8 </option>
-            <option value="9"> 9 </option>
-            <option value="10"> 10 </option>
+            {makeOptions(10)}
           </select>
         </div>
         <div className={geometry.m20auto}>

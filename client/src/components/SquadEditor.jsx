@@ -4,29 +4,47 @@ import * as FA from 'react-icons/lib/fa';
 import Button from './button/Button';
 import geometry from './OuterGeometry.css';
 
-const SquadEditor = ({actions}) => (
-  <div>
+const SquadEditor = ({actions, enableToSave}) => (
+  <div className={geometry.m20auto}>
     <div className={geometry.m20auto}>
-      <Button action={actions.onSave} layout="btn_filled">
-        <FA.FaCheck/>
-        Save Squad
-      </Button>
+     {enableToSave ? (
+        <Button action={actions.onSave} layout="btn_filled">
+          <FA.FaCheck/>
+          Save Squad
+        </Button>
+      ) : (
+        <Button action={() => {}} layout="btn_disabled">
+          <FA.FaCheck/>
+          Save Squad
+        </Button>
+      )
+      }
     </div>
     <div className={geometry.m20auto}>
-      <Button action={actions.onReset} layout="btn_filled">
-        <FA.FaClose/>
-        Reset Editor
-      </Button>
+      {enableToSave ? (
+        <Button action={actions.onReset} layout="btn_filled">
+          <FA.FaClose/>
+          Reset Editor
+        </Button>
+        ) : (
+          <Button action={() => {}} layout="btn_disabled">
+          <FA.FaClose/>
+          Reset Editor
+        </Button>
+        )
+      }
     </div>
   </div>
 );
 
 SquadEditor.propTypes ={
-  actions: PropTypes.objectOf(PropTypes.func)
+  actions: PropTypes.objectOf(PropTypes.func),
+  enableToSave: PropTypes.bool,
 }
 
 SquadEditor.defaultProps ={
-  actions: {}
+  actions: {},
+  enableToSave: false
 }
 
 export default SquadEditor;

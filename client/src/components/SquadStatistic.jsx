@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import typografy from './typography/titles.css';
 
 const SquadStatistic = ({statistic}) => {
-  const keys = Object.keys(statistic);
-  const values = Object.values(statistic);
+  const entries = Object.entries(statistic);
 
   return (
-    <ul>
-      <li key={keys[0]}>Strength: {values[0]}</li>
-      <li key={keys[1]}>Intelligence: {values[1]}</li>
-      <li key={keys[2]}>Speed: {values[2]}</li>
+    <ul className={typografy.statistic}>
+      {entries.map(([key, value]) => (
+        <li key={key}>{key}: <b>{value}</b></li>
+      ))}
     </ul>
-  )
+  );
 }
 
 SquadStatistic.propTypes = {

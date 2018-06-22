@@ -13,6 +13,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.func),
     PropTypes.shape(),
+    PropTypes.any,
   ]),
   type: PropTypes.string,
   layout: PropTypes.string,

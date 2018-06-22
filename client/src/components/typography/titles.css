@@ -1,17 +1,32 @@
-@value grafit: #424242;
+@value gblue: #6385bb;
 
 .heading1 {
   font-size: 38px;
-  color: grafit;
+  color: gblue;
   padding: 20px;
-  border-bottom: 2px solid grafit;
   text-align: center;
 }
 
 .heading2 {
   font-size: 24px;
-  color: grafit;
+  color: gblue;
   padding: 15px;
-  border-bottom: 1px solid grafit;
+  border-bottom: 2px solid gblue;
   text-align: center;
+  font-weight: 400;
+}
+
+.heading3 {
+  font-weight: 300;
+  color: gblue;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid gblue;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.statistic {
+  color: gblue;
+  text-align: center;
+  font-size: 16px;
 }

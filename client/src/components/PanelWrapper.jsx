@@ -6,7 +6,7 @@ const PanelWrapper = ({children}) => (
 
     <section className={styles.panel_wrapper}>
       {children.map((panel) => (
-        <div key={panel.props.name}>{panel}</div>
+        <div key={panel.props.title}>{panel}</div>
       ))}
     </section>
 

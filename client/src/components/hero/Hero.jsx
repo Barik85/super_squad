@@ -5,39 +5,31 @@ import Button from '../button/Button';
 import styles from './Hero.css';
 
 
-const Hero = ({dataHero, actions}) => {
+const Hero = ({id, name, strength, intelligence, speed, actions}) => {
 
   const showInfo = () => {
     console.log('[Hero info]');
-    // for (const key in dataHero) {
-    //   console.log(`${key}: ${dataHero[key]}`)
-    // }
-    console.log('Name: ', dataHero.name);
-    console.log('Strength: ', dataHero.strength);
-    console.log('Intelligence: ', dataHero.intelligence);
-    console.log('Speed: ', dataHero.speed);
+    console.log('Name: ', name);
+    console.log('Strength: ', strength);
+    console.log('Intelligence: ', intelligence);
+    console.log('Speed: ', speed);
   }
 
-  const {onAdd} = actions;
-  const {onDelete} = actions;
+  const {onAdd, onDelete} = actions;
 
   return (
   <div className={styles.hero}>
-    <p>{dataHero.name}</p>
-    <div>
-      {onAdd ? (
-        <Button action={() => {onAdd(dataHero.id)}}>
+    <p>{name}</p>
+    <div className={styles.btns_box}>
+      {onAdd && (
+        <Button action={() => {onAdd(id)}}>
           <FA.FaUserPlus/>
         </Button>
-      ) : (
-        ''
       )}
-      {onDelete ? (
-        <Button action={() => {onDelete(dataHero.id)}}>
+      {onDelete && (
+        <Button action={() => {onDelete(id)}}>
           <FA.FaTrash/>
         </Button>
-      ) : (
-        ''
       )}
       <Button action={() => {showInfo()}}>
           <FA.FaInfoCircle/>
@@ -46,29 +38,16 @@ const Hero = ({dataHero, actions}) => {
   </div>
 )};
 
-
-
-// Hero.propTypes = {
-//   dataHero: PropTypes.shape(
-//     PropTypes.any
-//   ),
-//   actions: PropTypes.shape(
-//     PropTypes.func
-//   )
-// }
 Hero.propTypes = {
-  dataHero: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    strength: PropTypes.number,
-    intelligence: PropTypes.number,
-    speed: PropTypes.number
-  }),
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  strength: PropTypes.number.isRequired,
+  intelligence: PropTypes.number.isRequired,
+  speed: PropTypes.number.isRequired,
   actions: PropTypes.shape()
 }
 
 Hero.defaultProps = {
-  dataHero: {},
   actions: {}
 }
 

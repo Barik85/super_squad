@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import * as FA from 'react-icons/lib/fa';
 import Button from '../button/Button';
 import styles from './Squad.css';
+import typografy from '../typography/titles.css';
 
 const Squad = ({squad, onDelete}) => (
   <div className={styles.squad}>
     <div className={styles.heroes_wrapper}>
       <div>
-        <h3>Heroes</h3>
+        <h3 className={typografy.heading3}>Heroes</h3>
         <ul>
           {squad.heroes.map((hero) => (
             <li key={hero.id}>{hero.name}</li>
@@ -16,7 +17,7 @@ const Squad = ({squad, onDelete}) => (
         </ul>
       </div>
       <div>
-        <h3>Stats</h3>
+        <h3 className={typografy.heading3}>Stats</h3>
         <ul>
           {Object.keys(squad.stats).map((stat) => (
             <li key={stat}>{stat}: {squad.stats[stat]}</li>
